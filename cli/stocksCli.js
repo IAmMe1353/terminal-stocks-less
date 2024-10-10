@@ -23,7 +23,7 @@ function fetchCurrentPrice(tickers, options = {}) {
                 console.log(responseTransformer.transformCurrentPrice(data, options));
             }
         }).catch((error) => {
-            console.log(responseTransformer.transformError(error));
+            console.log("");
         });
 }
 
@@ -66,6 +66,6 @@ function fetchChart(ticker) {
         .then((data) => {
             responseTransformer.transformChart(data);
         }).catch((error) => {
-            console.log(responseTransformer.transformError(error));
+            console.log("");
         });
 }
