@@ -1,6 +1,8 @@
 var request = require('request');
 const yahooFinance = require('yahoo-finance2').default;
 
+yahooFinance.supressNotices(['yahooSurvey']);
+
 const baseUrl = 'https://finance.yahoo.com/quote/'
 const regex = /root.App.main\s*=\s*{(.*)};/g
 const marketSummaryTickers = '^GSPC, ^DJI, ^IXIC, ^RUT, CL=F, GC=F, SI=F, EURUSD=X, GBPUSD=X, JPY=X, BTC-USD, ^CMC200, ^FTSE, ^N225'
