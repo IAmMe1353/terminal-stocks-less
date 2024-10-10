@@ -115,10 +115,7 @@ function transformCurrentPrice(data, options) {
     };
   }
 
-  return '\n' + table.toString() + '\n' + colors.grey(colors.grey(data[0].atDate)) + '\n\n'
-    + colors.yellow(`TIP: You can view historical prices by: curl terminal-stocks.dev/historical/${data[0].ticker}\n\n`)
-    + colors.blue.dim(`DISCLAIMER: For information purpose. Do not use for trading.\n`
-      + colors.yellow.dim(`[twitter: @imSPG] [Github: https://github.com/shweshi/terminal-stocks]\n\n`));
+  return '\n' + table.toString() + '\n' + colors.grey(colors.grey(data[0].atDate)) + '\n\n';
 }
 
 function transformHistoricalPrices(data) {
