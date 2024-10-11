@@ -58,13 +58,7 @@ function getCurrentPrice(tickers) {
         console.log = () => {};  // Suppress console.log
         console.warn = () => {}; // Suppress console.warn
 
-        var entity = await yahooFinance.quote(ticker)
-
-        // Restore console.log and console.warn
-        console.log = originalConsoleLog;
-        console.warn = originalConsoleWarn;
-
-
+        var entity = await yahooFinance.quote(ticker);
         // Restore console.log and console.warn
         console.log = originalConsoleLog;
         console.warn = originalConsoleWarn;
