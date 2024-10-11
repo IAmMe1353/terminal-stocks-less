@@ -21,7 +21,7 @@ function fetchCurrentPrice(tickers, options = {}) {
 
     yahooService.getCurrentPrice(tickers)
         .then((data) => {
-            originalConsoleLog("ahhh")
+            originalConsoleLog(originalConsoleLog);
             if (options.export === 'json') {
                 jsonService.jsonExport(data);
                 console.log(responseTransformer.transformExportJsonSuccess())
