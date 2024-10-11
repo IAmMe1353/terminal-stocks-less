@@ -85,7 +85,7 @@ function getCurrentPrice(tickers) {
           marketState
 
         })
-
+        console.log("hweelpl hweelpl ");
       } catch (err){
       reject(err)}
 
