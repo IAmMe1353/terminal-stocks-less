@@ -60,8 +60,7 @@ function getCurrentPrice(tickers) {
 
         var entity = await yahooFinance.quote(ticker);
         // Restore console.log and console.warn
-        console.log = originalConsoleLog;
-        console.warn = originalConsoleWarn;
+
         var price = getPrice(entity);
         var change = getChange(entity);
         var changePercent = getChangePercent(entity);
@@ -90,7 +89,8 @@ function getCurrentPrice(tickers) {
       }
     })
   });
-
+  console.log = originalConsoleLog;
+  console.warn = originalConsoleWarn;
   return Promise.all(dataPromise);
 }
 
