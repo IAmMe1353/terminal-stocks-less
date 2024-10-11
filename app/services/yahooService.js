@@ -55,30 +55,15 @@ function getCurrentPrice(tickers) {
 // Temporarily suppress console.log and console.warn
         const originalConsoleLog = console.log;
         const originalConsoleWarn = console.warn;
+        console.log = () => {};  // Suppress console.log
+        console.warn = () => {}; // Suppress console.warn
 
-        console.log = (message, ...optionalParams) => {
-          if (
-            message.includes("Fetching crumb") ||
-            message.includes("redirect") ||
-            message.includes("Success. Cookie expires")
-          ) {
-            // Suppress this log
-            return;
-          }
-          // Otherwise, log normally
-          originalConsoleLog(message, ...optionalParams);
-        };
+        var entity = await yahooFinance.quote(ticker)
 
-        console.warn = (message, ...optionalParams) => {
-          if (message.includes("suppress this if the request succeeds")) {
-            // Suppress warning
-            return;
-          }
-          // Otherwise, warn normally
-          originalConsoleWarn(message, ...optionalParams);
-        };
+        // Restore console.log and console.warn
+        console.log = originalConsoleLog;
+        console.warn = originalConsoleWarn;
 
-        var entity = await yahooFinance.quote(ticker);
 
         // Restore console.log and console.warn
         console.log = originalConsoleLog;
