@@ -51,10 +51,11 @@ function getCurrentPrice(tickers) {
 
   const dataPromise = tickers.map((ticker) => {
     return new Promise(async function (resolve, reject) {
-      try {
-// Temporarily suppress console.log and console.warn
         const originalConsoleLog = console.log;
         const originalConsoleWarn = console.warn;
+      try {
+// Temporarily suppress console.log and console.warn
+
         console.log = () => {};  // Suppress console.log
         console.warn = () => {}; // Suppress console.warn
 
@@ -84,11 +85,12 @@ function getCurrentPrice(tickers) {
           marketState
 
         })
-          console.log = originalConsoleLog;
-          console.warn = originalConsoleWarn;
+
       } catch (err) {
         reject(err)
       }
+        console.log = originalConsoleLog;
+        console.warn = originalConsoleWarn;
     })
   });
 
