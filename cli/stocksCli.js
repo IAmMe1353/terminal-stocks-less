@@ -13,7 +13,7 @@ module.exports = {
 function fetchCurrentPrice(tickers, options = {}) {
     const originalConsoleLog = console.log;
     const originalConsoleWarn = console.warn;
-    console.log("hello world");
+    console.log("hello world 0");
     console.log = () => {};  // Suppress console.log
     console.warn = () => {}; // Suppress console.warn
 
@@ -29,6 +29,7 @@ function fetchCurrentPrice(tickers, options = {}) {
             } else {
                 console.log = originalConsoleLog;
                 console.warn = originalConsoleWarn;
+                console.log("hello world 1");
                 console.log(responseTransformer.transformCurrentPrice(data, options));
             }
         }).catch((error) => {
