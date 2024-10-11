@@ -1,7 +1,5 @@
 
 
-console.log = () => {};  // Suppress console.log
-console.warn = () => {}; // Suppress console.warn
 var request = require('request');
 const yahooFinance = require('yahoo-finance2').default;
 
@@ -54,8 +52,7 @@ function getChart(ticker) {
 }
 
 function getCurrentPrice(tickers) {
-  console.log = () => {};  // Suppress console.log
-console.warn = () => {}; // Suppress console.warn
+  console.log("hweelpl");
   const dataPromise = tickers.map((ticker) => {
     return new Promise(async function (resolve, reject) {
 
