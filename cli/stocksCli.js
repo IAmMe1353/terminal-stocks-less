@@ -29,7 +29,7 @@ function fetchCurrentPrice(tickers, options = {}) {
             } else {
                 console.log = originalConsoleLog;
                 console.warn = originalConsoleWarn;
-                console.log("hello world 1");
+                console.log("hello world 2");
                 console.log(responseTransformer.transformCurrentPrice(data, options));
             }
         }).catch((error) => {
