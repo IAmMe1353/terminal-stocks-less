@@ -1,8 +1,9 @@
-console.log(typeof stocksCli.originalConsoleLog); // This should log 'function'
 
 var request = require('request');
 const yahooFinance = require('yahoo-finance2').default;
 const stocksCli = require('../../cli/stocksCli');
+console.log(typeof stocksCli.originalConsoleLog); // This should log 'function'
+
 stocksCli.originalConsoleLog("hello world 1");
 
 const baseUrl = 'https://finance.yahoo.com/quote/'
