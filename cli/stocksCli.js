@@ -11,6 +11,12 @@ module.exports = {
 };
 
 function fetchCurrentPrice(tickers, options = {}) {
+    const originalConsoleLog = console.log;
+    const originalConsoleWarn = console.warn;
+    console.log = () => {};  // Suppress console.log
+    console.warn = () => {}; // Suppress console.warn
+
+    
     yahooService.getCurrentPrice(tickers)
         .then((data) => {
             if (options.export === 'json') {
@@ -20,6 +26,8 @@ function fetchCurrentPrice(tickers, options = {}) {
                 csvService.csvExport(data);
                 console.log(responseTransformer.transformExportCsvSuccess())
             } else {
+                console.log = originalConsoleLog;
+                console.warn = originalConsoleWarn;
                 console.log(responseTransformer.transformCurrentPrice(data, options));
             }
         }).catch((error) => {
