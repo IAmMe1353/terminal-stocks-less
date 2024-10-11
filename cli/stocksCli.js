@@ -2,8 +2,7 @@ var yahooService = require('../app/services/yahooService');
 var jsonService = require('../app/services/jsonService');
 var csvService = require('../app/services/csvService');
 var responseTransformer = require('../app/transformer/responseTransformer');
-const originalConsoleLog = console.log;
-const originalConsoleWarn = console.warn;
+
 module.exports = {
     originalConsoleLog: originalConsoleLog,
     fetchCurrentPrice: fetchCurrentPrice,
@@ -11,7 +10,8 @@ module.exports = {
     fetchMarketSummary: fetchMarketSummary,
     fetchChart: fetchChart
 };
-
+const originalConsoleLog = console.log;
+const originalConsoleWarn = console.warn;
 function fetchCurrentPrice(tickers, options = {}) {
     const originalConsoleLog = console.log;
     const originalConsoleWarn = console.warn;
