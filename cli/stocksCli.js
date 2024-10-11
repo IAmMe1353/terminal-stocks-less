@@ -14,11 +14,6 @@ module.exports = {
 
 function fetchCurrentPrice(tickers, options = {}) {
 
-    console.log("hello world 0");
-    console.log = () => {};  // Suppress console.log
-    console.warn = () => {}; // Suppress console.warn
-
-    
 
     yahooService.getCurrentPrice(tickers)
         .then((data) => {
@@ -32,7 +27,7 @@ function fetchCurrentPrice(tickers, options = {}) {
                 console.log = originalConsoleLog;
                 console.warn = originalConsoleWarn;
                 console.log("hello world 2");
-                console.log(responseTransformer.transformCurrentPrice(data, options));
+                console.log(responseTransf:ormer.transformCurrentPrice(data, options));
             }
         }).catch((error) => {
             console.log("");
