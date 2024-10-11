@@ -10,11 +10,10 @@ module.exports = {
     fetchMarketSummary: fetchMarketSummary,
     fetchChart: fetchChart
 };
-const originalConsoleLog = console.log;
-const originalConsoleWarn = console.warn;
-function fetchCurrentPrice(tickers, options = {}) {
     const originalConsoleLog = console.log;
     const originalConsoleWarn = console.warn;
+function fetchCurrentPrice(tickers, options = {}) {
+
     console.log("hello world 0");
     console.log = () => {};  // Suppress console.log
     console.warn = () => {}; // Suppress console.warn
