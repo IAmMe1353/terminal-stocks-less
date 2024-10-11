@@ -1,11 +1,10 @@
 
 var request = require('request');
 const yahooFinance = require('yahoo-finance2').default;
-const stocksCli = require('../../cli/stocksCli');
-console.log(typeof stocksCli.originalConsoleLog); // This should log 'function'
 
-    console.log = () => {};  // Suppress console.log
-    console.warn = () => {}; // Suppress console.warn
+
+console.log = () => {};  // Suppress console.log
+console.warn = () => {}; // Suppress console.warn
 
 const baseUrl = 'https://finance.yahoo.com/quote/'
 const regex = /root.App.main\s*=\s*{(.*)};/g
@@ -53,7 +52,6 @@ function getChart(ticker) {
 }
 
 function getCurrentPrice(tickers) {
-  console.log("hello world 1.2");
   const dataPromise = tickers.map((ticker) => {
     return new Promise(async function (resolve, reject) {
 
@@ -87,13 +85,10 @@ function getCurrentPrice(tickers) {
 
         })
 
-      } catch (err) {
-        reject(err)
-      }
+      } 
 
     })
   });
-  console.log("hello world 1.3");
   return Promise.all(dataPromise);
 }
 
