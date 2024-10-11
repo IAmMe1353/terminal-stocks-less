@@ -115,7 +115,7 @@ function transformCurrentPrice(data, options) {
     };
   }
 
-  return '\n' + table.toString() + '\n' + colors.grey(colors.grey(data[0].atDate)) + '\n\n';
+  return table.toString();
 }
 
 function transformHistoricalPrices(data) {
