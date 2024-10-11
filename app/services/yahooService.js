@@ -1,7 +1,6 @@
 var request = require('request');
 const yahooFinance = require('yahoo-finance2').default;
 
-yahooFinance.supressNotices(['yahooSurvey']);
 
 const baseUrl = 'https://finance.yahoo.com/quote/'
 const regex = /root.App.main\s*=\s*{(.*)};/g
@@ -53,7 +52,17 @@ function getCurrentPrice(tickers) {
   const dataPromise = tickers.map((ticker) => {
     return new Promise(async function (resolve, reject) {
       try {
+// Temporarily suppress console.log and console.warn
+        const originalConsoleLog = console.log;
+        const originalConsoleWarn = console.warn;
+        console.log = () => {};  // Suppress console.log
+        console.warn = () => {}; // Suppress console.warn
+
         var entity = await yahooFinance.quote(ticker)
+// Restore console.log and console.warn
+        console.log = originalConsoleLog;
+        console.warn = originalConsoleWarn;
+        
         var price = getPrice(entity);
         var change = getChange(entity);
         var changePercent = getChangePercent(entity);
