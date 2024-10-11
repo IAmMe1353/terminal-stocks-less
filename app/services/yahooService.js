@@ -1,4 +1,4 @@
-console.log("hello world 1");
+stocksCli.originalConsoleLog("hello world 1");
 var request = require('request');
 const yahooFinance = require('yahoo-finance2').default;
 
