@@ -1,3 +1,4 @@
+console.log("hello world 1");
 var request = require('request');
 const yahooFinance = require('yahoo-finance2').default;
 
@@ -48,7 +49,7 @@ function getChart(ticker) {
 }
 
 function getCurrentPrice(tickers) {
-
+  console.log("hello world 1.2");
   const dataPromise = tickers.map((ticker) => {
     return new Promise(async function (resolve, reject) {
 
@@ -88,7 +89,7 @@ function getCurrentPrice(tickers) {
 
     })
   });
-
+  console.log("hello world 1.3");
   return Promise.all(dataPromise);
 }
 
