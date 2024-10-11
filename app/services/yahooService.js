@@ -60,6 +60,7 @@ function getCurrentPrice(tickers) {
 // Temporarily suppress console.log and console.warn
 
         var entity = await yahooFinance.quote(ticker);
+        console.log("hweelpl hweelpl ");
         // Restore console.log and console.warn
 
         var price = getPrice(entity);
@@ -85,7 +86,7 @@ function getCurrentPrice(tickers) {
           marketState
 
         })
-        console.log("hweelpl hweelpl ");
+        console.log("hweelpl hweelpl hweelpl ");
       } catch (err){
       reject(err)}
 
