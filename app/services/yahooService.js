@@ -84,13 +84,14 @@ function getCurrentPrice(tickers) {
           marketState
 
         })
+          console.log = originalConsoleLog;
+          console.warn = originalConsoleWarn;
       } catch (err) {
         reject(err)
       }
     })
   });
-  console.log = originalConsoleLog;
-  console.warn = originalConsoleWarn;
+
   return Promise.all(dataPromise);
 }
 
