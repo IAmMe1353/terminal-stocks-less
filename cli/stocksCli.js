@@ -4,7 +4,6 @@ var csvService = require('../app/services/csvService');
 var responseTransformer = require('../app/transformer/responseTransformer');
 
 module.exports = {
-    originalConsoleLog: originalConsoleLog,
     fetchCurrentPrice: fetchCurrentPrice,
     fetchHistoricalPrices: fetchHistoricalPrices,
     fetchMarketSummary: fetchMarketSummary,
