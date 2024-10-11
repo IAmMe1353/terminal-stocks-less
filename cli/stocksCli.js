@@ -13,6 +13,7 @@ module.exports = {
 function fetchCurrentPrice(tickers, options = {}) {
     const originalConsoleLog = console.log;
     const originalConsoleWarn = console.warn;
+    console.log("hello world");
     console.log = () => {};  // Suppress console.log
     console.warn = () => {}; // Suppress console.warn
 
