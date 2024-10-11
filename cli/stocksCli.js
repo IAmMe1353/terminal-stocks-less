@@ -2,7 +2,8 @@ var yahooService = require('../app/services/yahooService');
 var jsonService = require('../app/services/jsonService');
 var csvService = require('../app/services/csvService');
 var responseTransformer = require('../app/transformer/responseTransformer');
-
+    const originalConsoleLog = console.log;
+    const originalConsoleWarn = console.warn;
 module.exports = {
     originalConsoleLog: originalConsoleLog,
     fetchCurrentPrice: fetchCurrentPrice,
@@ -10,8 +11,7 @@ module.exports = {
     fetchMarketSummary: fetchMarketSummary,
     fetchChart: fetchChart
 };
-    const originalConsoleLog = console.log;
-    const originalConsoleWarn = console.warn;
+
 function fetchCurrentPrice(tickers, options = {}) {
 
     console.log("hello world 0");
@@ -22,7 +22,6 @@ function fetchCurrentPrice(tickers, options = {}) {
 
     yahooService.getCurrentPrice(tickers)
         .then((data) => {
-            originalConsoleLog(originalConsoleLog);
             if (options.export === 'json') {
                 jsonService.jsonExport(data);
                 console.log(responseTransformer.transformExportJsonSuccess())
