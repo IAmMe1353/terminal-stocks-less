@@ -5,6 +5,7 @@ var responseTransformer = require('../app/transformer/responseTransformer');
 const originalConsoleLog = console.log;
 const originalConsoleWarn = console.warn;
 module.exports = {
+    originalConsoleLog: originalConsoleLog,
     fetchCurrentPrice: fetchCurrentPrice,
     fetchHistoricalPrices: fetchHistoricalPrices,
     fetchMarketSummary: fetchMarketSummary,
