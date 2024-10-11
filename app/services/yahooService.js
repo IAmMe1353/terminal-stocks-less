@@ -51,13 +51,9 @@ function getCurrentPrice(tickers) {
 
   const dataPromise = tickers.map((ticker) => {
     return new Promise(async function (resolve, reject) {
-        const originalConsoleLog = console.log;
-        const originalConsoleWarn = console.warn;
+
       try {
 // Temporarily suppress console.log and console.warn
-
-        console.log = () => {};  // Suppress console.log
-        console.warn = () => {}; // Suppress console.warn
 
         var entity = await yahooFinance.quote(ticker);
         // Restore console.log and console.warn
@@ -89,8 +85,7 @@ function getCurrentPrice(tickers) {
       } catch (err) {
         reject(err)
       }
-        console.log = originalConsoleLog;
-        console.warn = originalConsoleWarn;
+
     })
   });
 
