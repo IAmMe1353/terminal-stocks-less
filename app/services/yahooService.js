@@ -55,19 +55,34 @@ function getCurrentPrice(tickers) {
 // Temporarily suppress console.log and console.warn
         const originalConsoleLog = console.log;
         const originalConsoleWarn = console.warn;
-        // Only suppress console.log for the duration of the API call
-        console.log = (message) => {
-          if (!message.includes('Fetching crumb') && !message.includes('redirect')) {
-            originalConsoleLog(message);
+
+        console.log = (message, ...optionalParams) => {
+          if (
+            message.includes("Fetching crumb") ||
+            message.includes("redirect") ||
+            message.includes("Success. Cookie expires")
+          ) {
+            // Suppress this log
+            return;
           }
+          // Otherwise, log normally
+          originalConsoleLog(message, ...optionalParams);
         };
-        
-        console.warn = () => {}; // suppress any warnings as well, if needed
-        var entity = await yahooFinance.quote(ticker)
-// Restore console.log and console.warn
+
+        console.warn = (message, ...optionalParams) => {
+          if (message.includes("suppress this if the request succeeds")) {
+            // Suppress warning
+            return;
+          }
+          // Otherwise, warn normally
+          originalConsoleWarn(message, ...optionalParams);
+        };
+
+        var entity = await yahooFinance.quote(ticker);
+
+        // Restore console.log and console.warn
         console.log = originalConsoleLog;
         console.warn = originalConsoleWarn;
-        
         var price = getPrice(entity);
         var change = getChange(entity);
         var changePercent = getChangePercent(entity);
