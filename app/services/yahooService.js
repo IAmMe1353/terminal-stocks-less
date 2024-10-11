@@ -52,13 +52,11 @@ function getChart(ticker) {
 }
 
 function getCurrentPrice(tickers) {
-  console.log("hweelpl");
   const dataPromise = tickers.map((ticker) => {
     return new Promise(async function (resolve, reject) {
 
       try {
 // Temporarily suppress console.log and console.warn
-        console.log("hweelpl hweelpl hahaha");
         const consoleConst = console.log;
         const consoleWarn = console.warn;
         const errorlog = console.error;
@@ -75,7 +73,6 @@ function getCurrentPrice(tickers) {
         console.error = errorlog;
         console.info = infolog;
         console.debug = debuglog;
-        console.log("hweelpl hweelpl ");
         // Restore console.log and console.warn
 
         var price = getPrice(entity);
@@ -101,7 +98,6 @@ function getCurrentPrice(tickers) {
           marketState
 
         })
-        console.log("hweelpl hweelpl hweelpl ");
       } catch (err){
       reject(err)}
 
