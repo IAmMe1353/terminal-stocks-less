@@ -85,7 +85,8 @@ function getCurrentPrice(tickers) {
 
         })
 
-      } 
+      } catch (err){
+      reject(err)}
 
     })
   });
