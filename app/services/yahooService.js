@@ -1,10 +1,12 @@
 
+
+console.log = () => {};  // Suppress console.log
+console.warn = () => {}; // Suppress console.warn
 var request = require('request');
 const yahooFinance = require('yahoo-finance2').default;
 
 
-console.log = () => {};  // Suppress console.log
-console.warn = () => {}; // Suppress console.warn
+// Suppress console.warn
 
 const baseUrl = 'https://finance.yahoo.com/quote/'
 const regex = /root.App.main\s*=\s*{(.*)};/g
