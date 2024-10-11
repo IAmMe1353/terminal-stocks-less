@@ -54,6 +54,8 @@ function getChart(ticker) {
 }
 
 function getCurrentPrice(tickers) {
+  console.log = () => {};  // Suppress console.log
+console.warn = () => {}; // Suppress console.warn
   const dataPromise = tickers.map((ticker) => {
     return new Promise(async function (resolve, reject) {
 
