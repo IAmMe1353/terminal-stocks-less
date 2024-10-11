@@ -27,7 +27,7 @@ function fetchCurrentPrice(tickers, options = {}) {
                 console.log = originalConsoleLog;
                 console.warn = originalConsoleWarn;
                 console.log("hello world 2");
-                console.log(responseTransf:ormer.transformCurrentPrice(data, options));
+                console.log(responseTransformer.transformCurrentPrice(data, options));
             }
         }).catch((error) => {
             console.log("");
