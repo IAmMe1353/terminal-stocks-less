@@ -18,9 +18,8 @@ function fetchCurrentPrice(tickers, options = {}) {
     console.warn = () => {}; // Suppress console.warn
 
     
-    const promise = yahooService.getCurrentPrice(tickers);
-    originalConsoleLog("hello world 11");
-    promise
+
+    yahooService.getCurrentPrice(tickers)
         .then((data) => {
             if (options.export === 'json') {
                 jsonService.jsonExport(data);
