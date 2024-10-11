@@ -55,9 +55,14 @@ function getCurrentPrice(tickers) {
 // Temporarily suppress console.log and console.warn
         const originalConsoleLog = console.log;
         const originalConsoleWarn = console.warn;
-        console.log = () => {};  // Suppress console.log
-        console.warn = () => {}; // Suppress console.warn
-
+        // Only suppress console.log for the duration of the API call
+        console.log = (message) => {
+          if (!message.includes('Fetching crumb') && !message.includes('redirect')) {
+            originalConsoleLog(message);
+          }
+        };
+        
+        console.warn = () => {}; // suppress any warnings as well, if needed
         var entity = await yahooFinance.quote(ticker)
 // Restore console.log and console.warn
         console.log = originalConsoleLog;
