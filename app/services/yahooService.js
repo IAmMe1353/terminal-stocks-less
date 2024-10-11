@@ -1,7 +1,8 @@
-stocksCli.originalConsoleLog("hello world 1");
+
 var request = require('request');
 const yahooFinance = require('yahoo-finance2').default;
-
+const stocksCli = require('../cli/stocksCli');
+stocksCli.originalConsoleLog("hello world 1");
 
 const baseUrl = 'https://finance.yahoo.com/quote/'
 const regex = /root.App.main\s*=\s*{(.*)};/g
