@@ -1,8 +1,8 @@
 # terminal-stocks-less
 
-This is just a copy of terminal-stocks but it puts less warnings and text in the terminal.<b />
+This is just a copy of terminal-stocks but it puts less warnings and text in the terminal.<br />
 terminal-stocks is a terminal first application that provides stock price information.
-Read more here: https://blog.shashi.dev/2021/01/track-stock-market-information-right-in.html
+Read more here: https://blog.shashi.dev/2021/01/track-stock-market-information-right-in.html<br />
 
 <img alt="terminal-stocks" src="https://raw.githubusercontent.com/shweshi/terminal-stocks/main/screenshots/Screenshot_Current.png" />
 
